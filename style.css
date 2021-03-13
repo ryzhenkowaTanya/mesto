@@ -1,0 +1,231 @@
+/**{*/
+/*    border: green 1px solid;*/
+/*}*/
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("fonts/Inter-Regular.woff2?v=3.15") format("woff2"),
+    url("fonts/Inter-Regular.woff?v=3.15") format("woff");
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("fonts/Inter-Medium.woff2?v=3.15") format("woff2"),
+    url("fonts/Inter-Medium.woff?v=3.15") format("woff");
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url("fonts/Inter-Black.woff2?v=3.15") format("woff2"),
+    url("fonts/Inter-Black.woff?v=3.15") format("woff");
+}
+
+.page {
+    font-family: 'Inter', 'Arial', sans-serif;
+    max-width: 1280px;
+    min-width: 320px;
+    margin: auto;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+.root {
+    background-color: #000000;
+}
+
+.header {
+    padding-top: 45px;
+    max-width: 880px;
+    margin: auto;
+}
+
+.header__logo {
+
+}
+
+.line {
+    max-width: 880px;
+    size: 1px;
+    color: #545454;
+    margin-top: 40px;
+    margin-bottom: 0;
+}
+
+.profile {
+    display: flex;
+    position: relative;
+    /*justify-content: space-between;*/
+    min-height: 120px;
+    max-width: 880px;
+    margin: auto;
+    padding-top: 40px;
+
+}
+
+@media screen and ( width: 320px) {
+    .profile {
+        flex-direction: column
+    }
+
+}
+
+.profile__avatar {
+    max-width: 120px;
+    max-height: 120px;
+}
+
+@media screen and ( width: 320px) {
+    .profile__avatar {
+        margin: auto;
+    }
+
+}
+
+.profile__info {
+    border: red 1px solid;
+    margin-left: 30px;
+    left: 150px;
+    flex-direction: column;
+    display: grid;
+    grid-template-columns: 294px 1fr;
+    grid-column-gap: 18px;
+    grid-row-gap: 16px;
+    margin-top: 22px;
+}
+
+@media screen and ( width: 320px) {
+    .profile__info {
+        grid-template-columns: 189px 1fr;
+    }
+
+}
+
+.profile__title {
+    color: white;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 48px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 18px;
+    border: red 1px solid;
+    width: 294px;
+
+}
+
+@media screen and ( width: 320px) {
+    .profile__title {
+        font-size: 27px;
+    }
+
+}
+
+.profile__icon {
+    height: 24px;
+    width: 24px;
+    margin-left: 0;
+    align-self: center;
+}
+
+@media screen and ( width: 320px) {
+    .profile__icon {
+        margin-top: 0;
+        max-height: 18px;
+        max-width: 18px;
+
+    }
+
+}
+
+
+.profile__subtitle {
+    color: white;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.profile__button {
+    background-color: black;
+    border: 2px solid #ffff;
+    width: 150px;
+    height: 50px;
+    padding: 14px 64px;
+    margin-top: 35px;
+    position: absolute;
+    right: 0;
+}
+
+.cards {
+    max-width: 880px;
+    margin: auto;
+    padding-top: 50px;
+}
+
+.cards_list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+    grid-column-gap: 17px;
+    grid-row-gap: 20px;
+    padding-left: 0;
+    margin-top: 0;
+
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+}
+
+.card_image {
+    object-fit: cover;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.cards__title {
+    margin-bottom: 0;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-top: 0;
+    border: green 1px solid;
+    max-width: 294px;
+}
+
+.card_item {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    max-width: 246px;
+    margin: 25px auto 31px;
+    border: green 1px solid;
+}
+
+.footer {
+    max-width: 880px;
+    margin: auto;
+    padding-top: 66px;
+}
+
+.footer_text {
+    margin: 0;
+    color: #545454;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.2;
+}
