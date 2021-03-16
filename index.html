@@ -17,26 +17,24 @@
 
 
         <section class="profile">
-            <img src="images/Avatar.png" alt="Фотография пользователя" class="profile__avatar">
+            <img src="images/avatar.jpg" alt="Фотография пользователя" class="profile__avatar">
             <div class="profile__info">
-<!--               <span class="profile_item">-->
-                <h1 class="profile__title">Жак-Ив Кусто</h1>
-                <img src="images/Edit%20Button.svg" alt="Иконка редактирования" class="profile__icon">
-<!--               </span>-->
-                   <p class="profile__subtitle">Исследователь океана</p>
+                <span class="profile_item">
+                <h1 class="profile__name">Жак-Ив Кусто</h1>
+                    <button class="profile__button-edit"></button>
+                </span>
+                <p class="profile__job">Исследователь океана</p>
             </div>
-            <button class="profile__button">
-                <img src="images/Vector.png">
-            </button>
+            <button class="profile__button-add"></button>
         </section>
 
         <section class="cards">
-            <ul class="cards_list">
+            <ul class="cards-list">
                 <li class="card">
                     <img src="images/kirill-pershin-1088404-unsplash.png" alt="Фотография пейзажа" class="card_image">
-                 <span class="card_item">
+                    <span class="card_item">
                     <h2 class="cards__title">Карачаевск</h2>
-                    <img src="images/Group.svg" alt="" class="cards__icon" >
+                    <img src="images/Group.svg" alt="" class="cards__icon">
                      </span>
                 </li>
                 <li class="card">
@@ -76,14 +74,27 @@
                 </li>
             </ul>
         </section>
+        <section class="popup popup__hidden">
+            <div class="popup__content" >
+            <button class="popup__button-close"></button>
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <form class="form">
+                    <fieldset class="form__edit-profile">
+                    <input type="text" class="form__input form__input-name" value="Жак-Ив Кусто">
+                    <hr class="form__line">
+                    <input type="text" class="form__input form__input-job" value="Исследователь океана">
+                    <hr class="form__line">
+                </fieldset>
+                <button class="form__button-save" type="submit">Сохранить</button>
+                </form>
+            </div>
+        </section>
 
-
-        <section class="elements"></section>
     </main>
     <footer class="footer">
         <p class="footer_text">&copy; 2020 Mesto Russia</p>
     </footer>
 </div>
-
+<script src="js.js"></script>
 </body>
 </html>
