@@ -1,0 +1,10 @@
+.profile_item {
+        margin-left: 28px;
+
+    }tent: center;
+    border: 1px solid red;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+
+}

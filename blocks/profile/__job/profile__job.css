@@ -1,0 +1,14 @@
+.profile__job {
+        margin-top: 14px;
+        font-size: 14px;
+
+    }x;
+    line-height: 1.2;
+    border: red 1px solid;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 336px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
