@@ -1,6 +1,6 @@
 let profileIcon = document.querySelector('.profile__button-edit')
 let formClose = document.querySelector('.popup__button-close');
-let popupHidden = document.querySelector('.popup__hidden')
+let popupHidden = document.querySelector('.popup-hidden')
 
 function editProfile() {
     popupHidden.style.visibility = 'visible';
