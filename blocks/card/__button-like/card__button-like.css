@@ -2,6 +2,7 @@
     width: 22px;
     height: 19px;
     border: 0;
+    outline: none;
     background-image: url("../../../images/Group.svg");
     background-color: transparent;
     cursor: pointer;
@@ -11,4 +12,5 @@
     background-image: url("../../../images/button__like-actibe.svg");
     opacity: 100;
     border: 0;
+    outline: none;
 }
