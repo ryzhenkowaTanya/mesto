@@ -10,6 +10,7 @@
     right: -10%;
     transform: rotate(-45deg);
     z-index: 3;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 767px) {

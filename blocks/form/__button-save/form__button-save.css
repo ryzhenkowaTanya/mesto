@@ -4,15 +4,14 @@
     background-color: #000000;
     color: white;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 48px;
+    margin: 48px auto 37px;
     border: 0;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 767px) {
     .form__button-save {
         width: 238px;
-        margin-top: 45px;
+        margin: 45px auto 25px;
     }
 }

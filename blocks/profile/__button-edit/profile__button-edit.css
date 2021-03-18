@@ -9,6 +9,7 @@
     background-position: center;
     margin-left: 18px;
     align-self: center;
+    cursor: pointer;
 }
 
 @media screen and ( max-width: 767px) {

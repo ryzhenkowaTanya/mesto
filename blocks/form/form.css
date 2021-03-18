@@ -1,3 +1,10 @@
 .form {
     align-self: center;
+    width: 358px;
+}
+
+@media screen and (max-width: 767px) {
+    .form {
+        width: 238px;
+    }
 }

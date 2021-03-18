@@ -4,6 +4,7 @@
     border: 0;
     background-image: url("../../../images/Group.svg");
     background-color: transparent;
+    cursor: pointer;
 }
 
 .card__button-like:active {
