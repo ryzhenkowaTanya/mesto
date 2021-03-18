@@ -8,5 +8,5 @@
 + javaScript
 + Grid Layout
 + Flexbox
-+ Методология БЭМ
++ Методология БЭМ  
 https://ryzhenkowatanya.github.io/mesto/index.html
