@@ -6,7 +6,7 @@
     background-color: transparent;
 }
 
-.card__button-like:active:focus {
+.card__button-like:active {
     background-image: url("../../../images/button__like-actibe.svg");
     opacity: 100;
     border: 0;

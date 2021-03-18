@@ -1,9 +1,5 @@
 .profile__item {
     display: flex;
-    justify-content: center;
-    border: 1px solid red;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 @media screen and ( max-width: 767px) {

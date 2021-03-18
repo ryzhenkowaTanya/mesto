@@ -2,7 +2,6 @@
     display: flex;
     position: relative;
     flex-basis: 882px;
-    border: red 1px solid;
     min-height: 120px;
     max-width: 880px;
     margin: auto;
