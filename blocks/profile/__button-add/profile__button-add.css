@@ -1,8 +1,7 @@
 .profile__button-add {
-        width: 282px;
-        margin-left: 0;
-        align-self: center;
-    }mage: url("images/plusIcon.svg");
+    background-color: transparent;
+    border: 2px solid #ffff;
+    background-image: url("../../../images/plusIcon.svg");
     background-size: 22px 22px;
     background-position: center;
     background-repeat: no-repeat;
@@ -11,4 +10,12 @@
     margin-top: 35px;
     border-radius: 2px;
     margin-left: auto;
+}
+
+@media screen and ( max-width: 767px) {
+    .profile__button-add {
+        width: 282px;
+        margin-left: 0;
+        align-self: center;
+    }
 }

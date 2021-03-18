@@ -2,6 +2,12 @@
     width: 22px;
     height: 19px;
     border: 0;
-    background-image: url("images/Group.svg");
+    background-image: url("../../../images/Group.svg");
     background-color: transparent;
+}
+
+.card__button-like:active:focus {
+    background-image: url("../../../images/button__like-actibe.svg");
+    opacity: 100;
+    border: 0;
 }

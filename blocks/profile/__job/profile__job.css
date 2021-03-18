@@ -1,8 +1,7 @@
 .profile__job {
-        margin-top: 14px;
-        font-size: 14px;
-
-    }x;
+    color: white;
+    font-weight: 400;
+    font-size: 18px;
     line-height: 1.2;
     border: red 1px solid;
     margin-top: 0;
@@ -11,4 +10,11 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+}
+
+@media screen and ( max-width: 767px) {
+    .profile__job {
+        margin-top: 14px;
+        font-size: 14px;
+    }
 }

@@ -1,4 +1,11 @@
 .cards {
+    max-width: 880px;
+    margin: auto;
+    padding-top: 50px;
+}
+
+@media screen and ( max-width: 767px) {
+    .cards {
         padding-left: 19px;
         padding-right: 19px;
     }
