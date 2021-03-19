@@ -6,8 +6,8 @@ let inputName = document.querySelector(".form__input_name");
 let inputJob = document.querySelector(".form__input_job");
 let profileName = document.querySelector(".profile__name");
 let profileJob = document.querySelector(".profile__job");
-let buttonSave = document.querySelector(".form__button-save");
 
+document.querySelector(".form__button-save");
 function openPopap() {
     popupEdit.classList.add('popup_opened')
 }
