@@ -8,9 +8,15 @@
     cursor: pointer;
 }
 
+.card__button-like:hover{
+    opacity: 0.5;
+    transition: 0.2s ease-in-out;
+}
+
 .card__button-like:active {
     background-image: url("../../../images/button__like-actibe.svg");
     opacity: 100;
     border: 0;
     outline: none;
 }
+

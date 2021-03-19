@@ -12,5 +12,6 @@
         min-width: 282px;
         margin-left: 0;
         align-items: center;
+        align-self: center;
     }
 }

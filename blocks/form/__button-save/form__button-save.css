@@ -7,11 +7,20 @@
     margin: 48px auto 37px;
     border: 0;
     cursor: pointer;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.form__button-save:hover{
+    opacity: 0.8;
+    transition: 0.2s ease-in-out;
 }
 
 @media screen and (max-width: 767px) {
     .form__button-save {
         width: 238px;
-        margin: 45px auto 25px;
+        margin-top: 45px;
+        margin-bottom: 25px;
+        font-size: 14px;
     }
 }

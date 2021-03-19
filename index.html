@@ -2,14 +2,14 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial=scale=1">
+    <meta name="viewport" content="width=device-width, initial=scale=1.0">
     <link rel="stylesheet" href="./page/index.css">
     <title>Место</title>
 </head>
 <body class="root">
 <div class="page">
     <header class="header">
-        <img src="images/logo.svg" alt="Логотип компании" class="header__logo" />
+        <img src="images/logo.svg" alt="Логотип компании" class="header__logo"/>
     </header>
     <main class="content">
         <section class="profile">
@@ -17,73 +17,75 @@
             <div class="profile__info">
                 <div class="profile__item">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <button type="button" class="profile__button-edit button-hover"></button>
+                    <button aria-label="Кнопка редактирования профиля" type="button"
+                            class="profile__button-edit button-hover"></button>
                 </div>
                 <p class="profile__job">Исследователь океана</p>
             </div>
-            <button type="button" class="profile__button-add button-hover"></button>
+            <button aria-label="Кнопка добавления карточки" type="button"
+                    class="profile__button-add button-hover"></button>
         </section>
         <section class="cards">
-            <ul class="cards-list">
+            <ul class="cards__list">
                 <li class="card">
                     <img src="images/papua-novaya-gvineya-7factov-2.jpg" alt="Фотография пейзажа" class="card__image">
                     <div class="card__item">
                         <h2 class="card__title">Новая Гвинея</h2>
-                        <button type="button" class="card__button-like button-hover"></button>
+                        <button aria-label="Кнопка поставить лайк" type="button" class="card__button-like"></button>
                     </div>
                 </li>
                 <li class="card">
                     <img src="images/FujiWestView2157%20(1).jpg" alt="Фотография пейзажа" class="card__image">
                     <div class="card__item">
                         <h2 class="card__title">Хонсю</h2>
-                        <button type="button" class="card__button-like button-hover"></button>
+                        <button aria-label="Кнопка поставить лайк" type="button" class="card__button-like"></button>
                     </div>
                 </li>
                 <li class="card">
                     <img src="images/Sulavesi_01-1024x768%20(1).jpg" alt="Фотография пейзажа" class="card__image">
                     <div class="card__item">
                         <h2 class="card__title">Сулавеси</h2>
-                        <button type="button" class="card__button-like button-hover"></button>
+                        <button aria-label="Кнопка поставить лайк" type="button" class="card__button-like"></button>
                     </div>
                 </li>
                 <li class="card">
                     <img src="images/Tasmania.jpg" alt="Фотография пейзажа" class="card__image">
                     <div class="card__item">
                         <h2 class="card__title">Тасмания</h2>
-                        <button type="button" class="card__button-like button-hover"></button>
+                        <button aria-label="Кнопка поставить лайк" type="button" class="card__button-like"></button>
                     </div>
                 </li>
                 <li class="card">
                     <img src="images/Hokkaido.jpg" alt="Фотография пейзажа" class="card__image">
                     <div class="card__item">
                         <h2 class="card__title">Хоккайдо</h2>
-                        <button type="button" class="card__button-like button-hover"></button>
+                        <button aria-label="Кнопка поставить лайк" type="button" class="card__button-like"></button>
                     </div>
                 </li>
                 <li class="card">
                     <img src="images/Sahalin.jpg" alt="Фотография пейзажа" class="card__image">
                     <div class="card__item">
                         <h2 class="card__title">Сахалин</h2>
-                        <button type="button" class="card__button-like button-hover"></button>
+                        <button aria-label="Кнопка поставить лайк" type="button" class="card__button-like"></button>
                     </div>
                 </li>
             </ul>
-        </section>
-        <section class="popup popup_opened">
-            <div class="popup__content">
-                <button type="button" class="popup__button-close button-hover"></button>
-                <h2 class="popup__title">Редактировать профиль</h2>
-                <form name="editInfo" class="form">
-                    <input name="profileName" type="text" class="form__input form__input-name" value="Жак-Ив Кусто">
-                    <input name="profileJob" type="text" class="form__input form__input-job" value="Исследователь океана">
-                    <button class="form__button-save button-hover" type="submit">Сохранить</button>
-                </form>
-            </div>
         </section>
     </main>
     <footer class="footer">
         <p class="footer__text">&copy; 2020 Mesto Russia</p>
     </footer>
+    <div class="popup">
+        <div class="popup__content">
+            <button type="button" class="popup__button-close button-hover"></button>
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <form name="editInfo" class="form">
+                <input name="profileName" type="text" class="form__input form__input_name" value="">
+                <input name="profileJob" type="text" class="form__input form__input_job" value="">
+                <button class="form__button-save" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
 </div>
 <script src="./scripts/script.js"></script>
 </body>

@@ -9,14 +9,6 @@
     -moz-text-size-adjust: 100%;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    padding-left: 19px;
-    padding-right: 19px;
 }
 
-@media screen and ( max-width: 767px) {
-    .page {
-        padding-left: 0;
-        padding-right: 0;
-    }
 
-}
