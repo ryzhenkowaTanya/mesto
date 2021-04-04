@@ -18,6 +18,7 @@
 @import url("../blocks/cards/cards.css");
 @import url("../blocks/cards/__list/cards__list.css");
 @import url("../blocks/card/card.css");
+@import url("../blocks/card/__button-delete/card__button-delete.css");
 @import url("../blocks/card/__image/card__image.css");
 @import url("../blocks/card/__item/card__item.css");
 @import url("../blocks/card/__title/card__title.css");
@@ -30,7 +31,73 @@
 @import url("../blocks/popup/__button-close/popup__button-close.css");
 @import url("../blocks/popup/__title/popup__title.css");
 @import url("../blocks/popup/__form/popup__form.css");
-@import url("../blocks/popup/__button-save/popup__button-save.css");
+@import url("../blocks/popup/__button/popup__button.css");
 @import url("../blocks/popup/__input/popup__input.css");
 
+.popup-image{
+    position: fixed;
+    visibility: hidden;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    z-index: 1;
+}
 
+.popup-image__content{
+    margin: auto;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+.popup-image__image{
+    max-width: 75vw;
+    max-height: 75vh;
+}
+
+.popup-image__signature{
+    color: #C4C4C4;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-top: 10px;
+}
+
+.popup-image__button-close{
+    background-image: url("../images/plusIcon.svg");
+    background-size: cover;
+    background-color: transparent;
+    border: 0;
+    width: 40px;
+    height: 40px;
+    transform: rotate(-45deg);
+    z-index: 3;
+    cursor: pointer;
+    outline: none;
+    position: absolute;
+    align-self: flex-end;
+    top: -40px;
+    right: -40px;
+}
+
+@media screen and (max-width: 767px) {
+    .popup-image__button-close {
+        right: 0;
+        top: -53.62px;
+        width: 26px;
+        height: 26px;
+    }
+}
+
+.like-active{
+    background-image: url("../images/button__like-actibe.svg");
+    opacity: 100;
+    border: 0;
+    outline: none;
+}
