@@ -17,8 +17,7 @@
             <div class="profile__info">
                 <div class="profile__item">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <button aria-label="Кнопка редактирования профиля" type="button"
-                            class="profile__button-edit button-hover"></button>
+                    <button aria-label="Кнопка редактирования профиля" type="button" class="profile__button-edit button-hover"></button>
                 </div>
                 <p class="profile__job">Исследователь океана</p>
             </div>
@@ -35,8 +34,7 @@
     </footer>
     <div class="popup">
         <div class="popup__content">
-            <button aria-label="Кнопка закрытия формы редактирования" type="button"
-                    class="popup__button-close button-hover"></button>
+            <button aria-label="Кнопка закрытия формы редактирования" type="button" class="popup__button-close button-hover"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
             <form name="editInfo" class="popup__form">
                 <input name="profileName" type="text" class="popup__input popup__input_type_name" value="">
@@ -49,16 +47,12 @@
     </div>
     <div class="popup popup_create-card">
         <div class="popup__content">
-            <button aria-label="Кнопка закрытия формы редактирования" type="button"
-                    class="popup__button-close button-hover popup__button-close_card"></button>
+            <button aria-label="Кнопка закрытия формы редактирования" type="button" class="popup__button-close button-hover popup-create-card-close"></button>
             <h2 class="popup__title">Новое место</h2>
             <form name="editInfo" class="popup__form">
-                <input name="profileNameCard" type="text" class="popup__input popup__input_type_name-card"
-                       placeholder="Название" value="">
-                <input name="profileLink" type="text" class="popup__input popup__input_type_link"
-                       placeholder="Ссылка на картинку" value="">
-                <button aria-label="Кнопка создания карточки" class="popup__button popup__button_create-card"
-                        type="submit">
+                <input name="profileNameCard" type="text" class="popup__input popup__input_type_name-card" placeholder="Название" value="">
+                <input name="profileLink" type="text" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку" value="">
+                <button aria-label="Кнопка создания карточки" class="popup__button popup__button_create-card" type="submit">
                     Создать
                 </button>
             </form>
@@ -66,17 +60,16 @@
     </div>
     <div class="popup-image">
         <figure class="popup-image__content">
-            <button aria-label="Кнопка закрытия формы редактирования" type="button"
-                    class="popup-image__button-close button-hover"></button>
+            <button aria-label="Кнопка закрытия формы редактирования" type="button" class="popup-image__button-close button-hover popup-image-close"></button>
             <img class="popup-image__image" alt="" src="images/Tasmania.jpg">
-            <figcaption class="popup-image__signature">Тасмания</figcaption>
+            <figcaption class="popup-image__signature"></figcaption>
         </figure>
     </div>
 </div>
 <template id="card-template">
     <li class="card">
         <button aria-label="Иконка удаления" type="button" class="card__button-delete"></button>
-        <img src="images/papua-novaya-gvineya-7factov-2.jpg" alt="Фотография пейзажа" class="card__image">
+        <img src="images/papua-novaya-gvineya-7factov-2.jpg" alt="" class="card__image">
         <div class="card__item">
             <h2 class="card__title"></h2>
             <button aria-label="Кнопка поставить лайк" type="button" class="card__button-like"></button>
