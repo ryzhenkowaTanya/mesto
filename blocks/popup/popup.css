@@ -11,13 +11,13 @@
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     opacity: 0;
-    transition-property: opacity;
+    transition-property: opacity, visibility;
     transition-duration: 0.3s;
     transition-delay: 0.01s;
     transition-timing-function: linear;
-    -webkit-transition-property: opacity;
-    -moz-transition-property: opacity;
-    -o-transition-property: opacity;
+    -webkit-transition-property: opacity,visibility;
+    -moz-transition-property: opacity, visibility;
+    -o-transition-property: opacity, visibility;
     -webkit-transition-duration: 0.3s;
     -moz-transition-duration: 0.3s;
     -o-transition-duration: 0.3s;
