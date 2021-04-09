@@ -17,9 +17,56 @@ const buttonCreateCard = document.querySelector('.profile__button-add');
 const cardList = document.querySelector('.cards__list');
 const templateCards = document.querySelector('#card-template').content.querySelector('.card');
 
+const initialCards = [
+    {
+        name: 'Pulau Ubin',
+        link: 'https://images.unsplash.com/photo-1617015606776-c54fd56b69b8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
+        alt: ''
+    },
+    {
+        name: 'Portovenere',
+        link: 'https://images.unsplash.com/photo-1617102888614-ae5c7c90d7eb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+        alt: ''
+    },
+    {
+        name: 'Takayama',
+        link: 'https://images.unsplash.com/photo-1616666720355-03ce7f70b237?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+        alt: ''
+    },
+    {
+        name: 'Ortygia',
+        link: 'https://images.unsplash.com/photo-1612361814394-35785ba16dc3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=702&q=80',
+        alt: ''
+    },
+    {
+        name: 'Novara di Sicilia',
+        link: 'https://images.unsplash.com/photo-1612361808300-da9583e1b34e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=671&q=80',
+        alt: ''
+    },
+    {
+        name: 'Gíza',
+        link: 'https://images.unsplash.com/photo-1590133324192-1df305deea6b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1252&q=80',
+        alt: ''
+    }
+];
+
+initialCards.forEach(addCartInList);
+
+function handlerCardSubmit(evt) {
+    evt.preventDefault();
+    const card = {
+        name: nameInputCard.value,
+        link: linkInputCard.value
+    }
+    addCartInList(card)
+    cardForm.reset()
+    closePopup(popupCreateCard)
+}
+
 function editPopup() {
     inputName.value = profileName.textContent;
     inputJob.value = profileJob.textContent;
+    openPopup(popupEditProfile);
 }
 
 function openPopup(open) {
@@ -34,16 +81,17 @@ function handlerProfileSubmit(evt) {
     evt.preventDefault();
     profileName.textContent = inputName.value;
     profileJob.textContent = inputJob.value;
+    closePopup(popupEditProfile);
 }
 
 // создание новой карточки
 
-function createCard(nameCard, linkCard) {
+function createCard(card) {
     const templateElement = templateCards.cloneNode(true);
-    const templateCardsTitle = templateElement.querySelector('.card__title').textContent = nameCard;
+    const templateCardsTitle = templateElement.querySelector('.card__title').textContent =card.name;
     const templateCardImage = templateElement.querySelector('.card__image');
     const btnLike = templateElement.querySelector('.card__button-like')
-    templateCardImage.setAttribute('src', linkCard);
+    templateCardImage.setAttribute('src', card.link);
     btnLike.addEventListener('click', handleLikeCard);
     // удаление карточки
     const cardDelete = templateElement.querySelector('.card__button-delete')
@@ -53,7 +101,7 @@ function createCard(nameCard, linkCard) {
     const popupOpenImage = document.querySelector('.popup__image');
     const popupImageSignature = document.querySelector('.popup__caption');
     const popupCardTitle = templateElement.querySelector('.card__title');
-    templateCardImage.setAttribute('alt', nameCard);
+    templateCardImage.setAttribute('alt', card.name);
     cardImage.addEventListener('click', () => {
         popupOpenImage.src = cardImage.src
         popupImageSignature.textContent = popupCardTitle.textContent;
@@ -70,37 +118,26 @@ function handleLikeCard(evt) {
 }
 
 // удаление карточки
-function handleDeleteCard() {
-    const card = document.querySelector('.card')
-    card.remove()
+function handleDeleteCard(evt) {
+    evt.target.closest('.card').remove()
 }
 
 // добавление карточки
-function addCartInList(nameCard, linkCard) {
-    const templateElement = createCard(nameCard, linkCard);
+function addCartInList(card) {
+    const templateElement = createCard(card);
     cardList.prepend(templateElement)
+
 }
 
 // closePopup
 popupCloseEditBtn.addEventListener('click', () => closePopup(popupEditProfile));
 popupCloseCardsBtn.addEventListener('click', () => closePopup(popupCreateCard));
+popupImageBtnClose.addEventListener('click', () => closePopup(popupImage));
 //openPopup
 buttonCreateCard.addEventListener('click', () => openPopup(popupCreateCard));
-openEditFormButton.addEventListener('click', () => {
-    editPopup()
-    openPopup(popupEditProfile);
-});
-//submit
-cardForm.addEventListener('submit', evt => {
-    handlerCardSubmit(evt)
-    cardForm.reset()
-    closePopup(popupCreateCard)
-});
-formElement.addEventListener('submit', evt => {
-    handlerProfileSubmit(evt)
-    closePopup(popupEditProfile);
-});
 
-popupImageBtnClose.addEventListener('click', () => {
-    closePopup(popupImage)
-})
+//submit
+cardForm.addEventListener('submit', handlerCardSubmit);
+formElement.addEventListener('submit', handlerProfileSubmit);
+
+openEditFormButton.addEventListener('click', editPopup);
