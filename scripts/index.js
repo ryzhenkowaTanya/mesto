@@ -88,27 +88,26 @@ function handlerProfileSubmit(evt) {
 
 function createCard(card) {
     const templateElement = templateCards.cloneNode(true);
-    const templateCardsTitle = templateElement.querySelector('.card__title').textContent =card.name;
+    templateElement.querySelector('.card__title').textContent = card.name;
     const templateCardImage = templateElement.querySelector('.card__image');
     const btnLike = templateElement.querySelector('.card__button-like')
+    const popupCardTitle = templateElement.querySelector('.card__title');
+    const cardDelete = templateElement.querySelector('.card__button-delete')
     templateCardImage.setAttribute('src', card.link);
     btnLike.addEventListener('click', handleLikeCard);
-    // удаление карточки
-    const cardDelete = templateElement.querySelector('.card__button-delete')
     cardDelete.addEventListener('click', handleDeleteCard);
-    // открытие картинки в отдельном окне
-    const cardImage = templateElement.querySelector('.card__image');
+    templateCardImage.alt = card.name;
+    templateCardImage.addEventListener('click', evt => { listenerCardImage(evt,popupCardTitle)});
+    return templateElement
+}
+
+function listenerCardImage(evt, popupCardTitle) {
     const popupOpenImage = document.querySelector('.popup__image');
     const popupImageSignature = document.querySelector('.popup__caption');
-    const popupCardTitle = templateElement.querySelector('.card__title');
-    templateCardImage.setAttribute('alt', card.name);
-    cardImage.addEventListener('click', () => {
-        popupOpenImage.src = cardImage.src
-        popupImageSignature.textContent = popupCardTitle.textContent;
-        openPopup(popupImage)
-
-    });
-    return templateElement
+    popupOpenImage.src = evt.target.src;
+    popupOpenImage.alt = popupCardTitle;
+    popupImageSignature.textContent = popupCardTitle.textContent;
+    openPopup(popupImage);
 }
 
 
@@ -139,5 +138,4 @@ buttonCreateCard.addEventListener('click', () => openPopup(popupCreateCard));
 //submit
 cardForm.addEventListener('submit', handlerCardSubmit);
 formElement.addEventListener('submit', handlerProfileSubmit);
-
 openEditFormButton.addEventListener('click', editPopup);
