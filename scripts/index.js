@@ -1,13 +1,13 @@
 const openEditFormButton = document.querySelector('.profile__button-edit');
 const popupCloseEditBtn = document.querySelector('.popup__close');
-const popupCloseCardsBtn = document.querySelector('.popup__close_type_cards')
+const popupCloseCardsBtn = document.querySelector('.popup__close_type_cards');
 const popupEditProfile = document.querySelector('.popup_type_edit');
 const formElement = document.querySelector('.popup__form');
 const inputName = document.querySelector('.popup__input_type_name');
 const inputJob = document.querySelector('.popup__input_type_job');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
-const cardForm = document.querySelector('.popup__form_type_card')
+const cardForm = document.querySelector('.popup__form_type_card');
 const popupImage = document.querySelector('.popup_type_image');
 const popupImageBtnClose = document.querySelector('.popup__close_type_image');
 const nameInputCard = document.querySelector('.popup__input_type_name-card');
@@ -15,6 +15,8 @@ const linkInputCard = document.querySelector('.popup__input_type_link');
 const popupCreateCard = document.querySelector('.popup_type_new-card');
 const buttonCreateCard = document.querySelector('.profile__button-add');
 const cardList = document.querySelector('.cards__list');
+const popupOpenImage = document.querySelector('.popup__image');
+const popupImageSignature = document.querySelector('.popup__caption');
 const templateCards = document.querySelector('#card-template').content.querySelector('.card');
 
 const initialCards = [
@@ -59,8 +61,8 @@ function handlerCardSubmit(evt) {
         link: linkInputCard.value
     }
     addCartInList(card)
-    cardForm.reset()
-    closePopup(popupCreateCard)
+    cardForm.reset();
+    closePopup(popupCreateCard);
 }
 
 function editPopup() {
@@ -70,7 +72,7 @@ function editPopup() {
 }
 
 function openPopup(open) {
-    open.classList.add('popup-opened')
+    open.classList.add('popup-opened');
 }
 
 function closePopup(close) {
@@ -91,25 +93,23 @@ function createCard(card) {
     templateElement.querySelector('.card__title').textContent = card.name;
     const templateCardImage = templateElement.querySelector('.card__image');
     const btnLike = templateElement.querySelector('.card__button-like')
-    const popupCardTitle = templateElement.querySelector('.card__title');
     const cardDelete = templateElement.querySelector('.card__button-delete')
     templateCardImage.setAttribute('src', card.link);
     btnLike.addEventListener('click', handleLikeCard);
     cardDelete.addEventListener('click', handleDeleteCard);
     templateCardImage.alt = card.name;
-    templateCardImage.addEventListener('click', evt => { listenerCardImage(evt,popupCardTitle)});
+    templateCardImage.addEventListener('click', () => {
+        handlePreviewImages(card)
+    });
     return templateElement
 }
 
-function listenerCardImage(evt, popupCardTitle) {
-    const popupOpenImage = document.querySelector('.popup__image');
-    const popupImageSignature = document.querySelector('.popup__caption');
-    popupOpenImage.src = evt.target.src;
-    popupOpenImage.alt = popupCardTitle;
-    popupImageSignature.textContent = popupCardTitle.textContent;
+function handlePreviewImages(card) {
+    popupOpenImage.src = card.link;
+    popupOpenImage.alt = card.name;
+    popupImageSignature.textContent = card.name;
     openPopup(popupImage);
 }
-
 
 // реализация лайка
 function handleLikeCard(evt) {
