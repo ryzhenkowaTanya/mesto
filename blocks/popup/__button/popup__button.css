@@ -16,6 +16,14 @@
     transition: 0.2s ease-in-out;
 }
 
+.popup__button:disabled{
+    background-color: transparent;
+    border: 1px;
+    opacity: 0.2;
+    color: black;
+    pointer-events: none;
+}
+
 @media screen and (max-width: 767px) {
     .popup__button {
         width: 238px;
