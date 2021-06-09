@@ -5,10 +5,15 @@
     padding-bottom: 13px;
     font-size: 14px;
     line-height: 1.2;
+    position: relative;
 }
 
 .popup__input:nth-of-type(2) {
     margin-top: 30px;
+}
+
+.popup__input:focus{
+    border: 0;
 }
 
 @media screen and (max-width: 767px) {
@@ -16,9 +21,4 @@
         width: 238px;
     }
 }
-.popup__input:focus{
-    border: 0;
-}
-/*.popup__input:invalid{*/
-/*    border-bottom: 1px solid #FF0000;*/
-/*}*/
+

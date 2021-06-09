@@ -18,9 +18,9 @@
 
 .popup__button:disabled{
     background-color: transparent;
-    border: 1px;
+    border: 1px solid;
     opacity: 0.2;
-    color: black;
+    color: black ;
     pointer-events: none;
 }
 

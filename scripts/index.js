@@ -101,7 +101,9 @@ function createCard(card) {
     templateCardImage.addEventListener('click', () => {
         handlePreviewImages(card)
     });
+
     return templateElement
+
 }
 
 function handlePreviewImages(card) {
@@ -125,16 +127,40 @@ function handleDeleteCard(evt) {
 function addCartInList(card) {
     const templateElement = createCard(card);
     cardList.prepend(templateElement)
-
 }
 
-// closePopup
+// close Popup on button
 popupCloseEditBtn.addEventListener('click', () => closePopup(popupEditProfile));
 popupCloseCardsBtn.addEventListener('click', () => closePopup(popupCreateCard));
 popupImageBtnClose.addEventListener('click', () => closePopup(popupImage));
+
+
+//function close popup press on esc
+function closePressEsc(close,popup){
+    if(close.keyCode === 27){
+        closePopup(popup)
+    } else {}
+}
+// closePopup esc
+document.addEventListener('keydown', close => closePressEsc(close,popupEditProfile));
+document.addEventListener('keydown', close => closePressEsc(close,popupCreateCard));
+document.addEventListener('keydown', close => closePressEsc(close,popupImage));
+
+
+//function close press on empty space
+function closePressEmpty(close, popup){
+    if( close.target.className.includes('popup-opened')){
+        closePopup(popup)}
+    }
+
+//losePopup esc
+document.addEventListener('click', close => closePressEmpty(close,popupEditProfile));
+document.addEventListener('click', close => closePressEmpty(close,popupCreateCard));
+document.addEventListener('click', close => closePressEmpty(close,popupImage));
+
+
 //openPopup
 buttonCreateCard.addEventListener('click', () => openPopup(popupCreateCard));
-
 //submit
 cardForm.addEventListener('submit', handlerCardSubmit);
 formElement.addEventListener('submit', handlerProfileSubmit);
