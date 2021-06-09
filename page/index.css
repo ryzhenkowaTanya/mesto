@@ -49,9 +49,14 @@
     transition: opacity 0.3s;
     top: 5px;
     left: 0;
+    opacity: 1;
     max-height: 12px;
 }
+.form__input-error_active{
+    opacity: 1;
+}
 
-/*.form__input-error_active{*/
-/*    opacity: 1;*/
-/*}*/
+
+.popup__input_type_error{
+    border-bottom-color: red;
+}
