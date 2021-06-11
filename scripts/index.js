@@ -1,6 +1,6 @@
-const openEditFormButton = document.querySelector('.profile__button-edit');
-const popupCloseEditBtn = document.querySelector('.popup__close');
-const popupCloseCardsBtn = document.querySelector('.popup__close_type_cards');
+const buttonOpenPopupProfile = document.querySelector('.profile__button-edit');
+const buttonClosePopupProfile = document.querySelector('.popup__close');
+const buttonClosePopupCard = document.querySelector('.popup__close_type_cards');
 const popupEditProfile = document.querySelector('.popup_type_edit');
 const formElement = document.querySelector('.popup__form');
 const inputName = document.querySelector('.popup__input_type_name');
@@ -9,50 +9,16 @@ const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
 const cardForm = document.querySelector('.popup__form_type_card');
 const popupImage = document.querySelector('.popup_type_image');
-const popupImageBtnClose = document.querySelector('.popup__close_type_image');
+const buttonClosePopupImage = document.querySelector('.popup__close_type_image');
 const nameInputCard = document.querySelector('.popup__input_type_name-card');
 const linkInputCard = document.querySelector('.popup__input_type_link');
 const popupCreateCard = document.querySelector('.popup_type_new-card');
 const buttonCreateCard = document.querySelector('.profile__button-add');
 const cardList = document.querySelector('.cards__list');
 const popupOpenImage = document.querySelector('.popup__image');
-const popupImageSignature = document.querySelector('.popup__caption');
+const popupSignatureImage = document.querySelector('.popup__caption');
 const templateCards = document.querySelector('#card-template').content.querySelector('.card');
 
-const initialCards = [
-    {
-        name: 'Pulau Ubin',
-        link: 'https://images.unsplash.com/photo-1617015606776-c54fd56b69b8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
-        alt: ''
-    },
-    {
-        name: 'Portovenere',
-        link: 'https://images.unsplash.com/photo-1617102888614-ae5c7c90d7eb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-        alt: ''
-    },
-    {
-        name: 'Takayama',
-        link: 'https://images.unsplash.com/photo-1616666720355-03ce7f70b237?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-        alt: ''
-    },
-    {
-        name: 'Ortygia',
-        link: 'https://images.unsplash.com/photo-1612361814394-35785ba16dc3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=702&q=80',
-        alt: ''
-    },
-    {
-        name: 'Novara di Sicilia',
-        link: 'https://images.unsplash.com/photo-1612361808300-da9583e1b34e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=671&q=80',
-        alt: ''
-    },
-    {
-        name: 'Gíza',
-        link: 'https://images.unsplash.com/photo-1590133324192-1df305deea6b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1252&q=80',
-        alt: ''
-    }
-];
-
-initialCards.forEach(addCartInList);
 
 function handlerCardSubmit(evt) {
     evt.preventDefault();
@@ -73,10 +39,17 @@ function editPopup() {
 
 function openPopup(open) {
     open.classList.add('popup-opened');
+    document.addEventListener('keydown', closePopupPressEsc) //вешаем обработчик на document
+    let form = open.querySelector(".popup__form")
+    if(form != null){
+        setEventListeners(form)
+    }
+
 }
 
 function closePopup(close) {
     close.classList.remove('popup-opened');
+    document.removeEventListener('keydown', closePopupPressEsc) //удаляем обработчик у document
 }
 
 function handlerProfileSubmit(evt) {
@@ -109,7 +82,7 @@ function createCard(card) {
 function handlePreviewImages(card) {
     popupOpenImage.src = card.link;
     popupOpenImage.alt = card.name;
-    popupImageSignature.textContent = card.name;
+    popupSignatureImage.textContent = card.name;
     openPopup(popupImage);
 }
 
@@ -130,33 +103,28 @@ function addCartInList(card) {
 }
 
 // close Popup on button
-popupCloseEditBtn.addEventListener('click', () => closePopup(popupEditProfile));
-popupCloseCardsBtn.addEventListener('click', () => closePopup(popupCreateCard));
-popupImageBtnClose.addEventListener('click', () => closePopup(popupImage));
+buttonClosePopupProfile.addEventListener('click', () => closePopup(popupEditProfile));
+buttonClosePopupCard.addEventListener('click', () => closePopup(popupCreateCard));
+buttonClosePopupImage.addEventListener('click', () => closePopup(popupImage));
 
 
 //function close popup press on esc
-function closePressEsc(close,popup){
-    if(close.keyCode === 27){
-        closePopup(popup)
-    } else {}
+function closePopupPressEsc(event) {
+    if (event.keyCode === 27) {
+        closePopup(document.querySelector('.popup-opened'))
+    }
 }
-// closePopup esc
-document.addEventListener('keydown', close => closePressEsc(close,popupEditProfile));
-document.addEventListener('keydown', close => closePressEsc(close,popupCreateCard));
-document.addEventListener('keydown', close => closePressEsc(close,popupImage));
-
 
 //function close press on empty space
-function closePressEmpty(close, popup){
-    if( close.target.className.includes('popup-opened')){
-        closePopup(popup)}
+function closePressEmpty(close, popup) { // todo experiment
+    if (close.target.className.includes('popup-opened')) {
+        closePopup(popup)
     }
+}
 
-//losePopup esc
-document.addEventListener('click', close => closePressEmpty(close,popupEditProfile));
-document.addEventListener('click', close => closePressEmpty(close,popupCreateCard));
-document.addEventListener('click', close => closePressEmpty(close,popupImage));
+document.addEventListener('click', close => closePressEmpty(close, popupEditProfile));
+document.addEventListener('click', close => closePressEmpty(close, popupCreateCard));
+document.addEventListener('click', close => closePressEmpty(close, popupImage));
 
 
 //openPopup
@@ -164,4 +132,6 @@ buttonCreateCard.addEventListener('click', () => openPopup(popupCreateCard));
 //submit
 cardForm.addEventListener('submit', handlerCardSubmit);
 formElement.addEventListener('submit', handlerProfileSubmit);
-openEditFormButton.addEventListener('click', editPopup);
+buttonOpenPopupProfile.addEventListener('click', editPopup);
+
+initialCards.forEach(addCartInList);
