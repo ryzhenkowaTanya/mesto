@@ -108,8 +108,8 @@ function closePopupPressEsc(event) {
 }
 
 //function close press on empty space
-function closePressEmpty(close, popup) { // todo experiment
-    if (close.target.className.includes('popup-opened')) {
+function closePressEmpty(close, popup){
+    if (close.target.matches('.popup-opened')) {//event.target.matches('.popup-opened')
         closePopup(popup)
     }
 }
