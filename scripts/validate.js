@@ -4,18 +4,13 @@ function enableValidation(config) {
     form.addEventListener('input', event => handleFormInput(event, config));
 }
 
-function handleFormSubmit(event,config) {
+function handleFormSubmit(event, config) {
     event.preventDefault();
     const form = event.currentTarget;
     const isValid = form.checkValidity();
-
-    console.log(isValid)
-    if (isValid) {
-        const button = form.querySelector(config.submitButton)
-        button.setAttribute('disabled', 'disabled');
-        form.reset()
-    } else {
-    }
+    const button = form.querySelector(config.submitButton)
+    button.setAttribute('disabled', 'disabled');
+    form.reset()
 }
 
 function handleFormInput(event, config) {
@@ -40,7 +35,7 @@ function setFieldError(form, input) {
 function setSubmitButtonState(form, config) {
     const button = form.querySelector(config.submitButton) //
     const isValid = form.checkValidity()
-    console.log(isValid)
+
     if (isValid) {
         button.classList.add('popup_button_valid');
         button.classList.remove('popup_button_invalid');
