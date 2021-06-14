@@ -1,71 +1,87 @@
-const buttonElements = document.querySelectorAll('.popup__button');
+function enableValidation(config) {
+    const form = document.querySelector(config.form);
+    form.addEventListener('submit', event => handleFormSubmit(event, config));
+    form.addEventListener('input', event => handleFormInput(event, config));
+}
 
-formElement.addEventListener('submit', function (evt) {
-    evt.preventDefault();
-});
+function handleFormSubmit(event,config) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const isValid = form.checkValidity();
 
-const showInputError = (formElement, inputElement, errorMessage) => {
-    const formError = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.add('popup__input_type_error');
-    formError.textContent = errorMessage;
-    formError.classList.add('.form__input-error_active');
-};
-
-// function which remove class with error
-const hideInputError = (formElement, inputElement) => {
-    const formError = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.remove('popup__input_type_error');
-    formError.classList.remove('.form__input-error_active');
-    formError.textContent = '';
-};
-
-// Function which checks validity field
-const isValid = (formElement, inputElement) => {
-    console.log(formElement)
-    console.log(inputElement)
-    if (!inputElement.validity.valid) {
-        showInputError(formElement, inputElement, inputElement.validationMessage);
+    console.log(isValid)
+    if (isValid) {
+        const button = form.querySelector(config.submitButton)
+        button.setAttribute('disabled', 'disabled');
+        form.reset()
     } else {
-        hideInputError(formElement, inputElement);
     }
-};
+}
 
-formElement.addEventListener('submit', function (evt) {
-    evt.preventDefault();
-});
+function handleFormInput(event, config) {
+    const input = event.target;
+    const form = event.currentTarget
+    setFieldError(form, input)
+    setSubmitButtonState(form, config)
+}
 
+function setFieldError(form, input) {
+    const span = document.querySelector(`#${input.id}-error`)
+    span.textContent = input.validationMessage;
 
-const toggleButtonState = (inputList, buttonElement) => {
-    const hasNotValidInput = inputList.some(
-        (inputElement) => !inputElement.validity.valid
-    );
-    if (hasNotValidInput) {
-        buttonElement.setAttribute('disabled', true);
-        buttonElement.classList.add('popup__button_inactive');
+    if (input.validity.valid) {
+        input.classList.remove('popup__input_type_error');
     } else {
-        buttonElement.removeAttribute('disabled');
-        buttonElement.classList.remove('popup__button_inactive');
+        input.classList.add('popup__input_type_error');
     }
-};
 
-const setEventListeners = (formElement) => {
-    const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
-    const buttonElement = formElement.querySelector('.popup__button')
-    inputList.forEach((inputElement) => {
-        inputElement.addEventListener('input', () => {
-            toggleButtonState(inputList, buttonElement);
-            isValid(formElement, inputElement)
-        });
-    });
-    buttonElements.forEach((buttonElement) => toggleButtonState(inputList, buttonElement));
-};
+}
 
-const enableValidation = () => {
-    const formList = Array.from(document.querySelectorAll('.popup__form'));
-    formList.forEach((formElement) => setEventListeners(formElement));
-};
+function setSubmitButtonState(form, config) {
+    const button = form.querySelector(config.submitButton) //
+    const isValid = form.checkValidity()
+    console.log(isValid)
+    if (isValid) {
+        button.classList.add('popup_button_valid');
+        button.classList.remove('popup_button_invalid');
+        button.removeAttribute('disabled');
+    } else {
+        button.classList.remove('popup_button_valid');
+        button.classList.add('popup_button_invalid');
+        button.setAttribute('disabled', 'disabled');
+    }
+}
 
-enableValidation();
+enableValidation({
+    form: '.popup__form[name="editInfo"]',
+    submitButton: '.popup__button'
+})
+
+enableValidation({
+    form: '.popup__form[name="insertInfo"]',
+    submitButton: '.popup__button_create-card'
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -19,7 +19,6 @@ const popupOpenImage = document.querySelector('.popup__image');
 const popupSignatureImage = document.querySelector('.popup__caption');
 const templateCards = document.querySelector('#card-template').content.querySelector('.card');
 
-
 function handlerCardSubmit(evt) {
     evt.preventDefault();
     const card = {
@@ -39,17 +38,12 @@ function editPopup() {
 
 function openPopup(open) {
     open.classList.add('popup-opened');
-    document.addEventListener('keydown', closePopupPressEsc) //вешаем обработчик на document
-    let form = open.querySelector(".popup__form")
-    if(form != null){
-        setEventListeners(form)
-    }
-
+    document.addEventListener('keydown', closePopupPressEsc)
 }
 
 function closePopup(close) {
     close.classList.remove('popup-opened');
-    document.removeEventListener('keydown', closePopupPressEsc) //удаляем обработчик у document
+    document.removeEventListener('keydown', closePopupPressEsc)
 }
 
 function handlerProfileSubmit(evt) {
@@ -60,7 +54,6 @@ function handlerProfileSubmit(evt) {
 }
 
 // создание новой карточки
-
 function createCard(card) {
     const templateElement = templateCards.cloneNode(true);
     templateElement.querySelector('.card__title').textContent = card.name;
@@ -107,7 +100,6 @@ buttonClosePopupProfile.addEventListener('click', () => closePopup(popupEditProf
 buttonClosePopupCard.addEventListener('click', () => closePopup(popupCreateCard));
 buttonClosePopupImage.addEventListener('click', () => closePopup(popupImage));
 
-
 //function close popup press on esc
 function closePopupPressEsc(event) {
     if (event.keyCode === 27) {
@@ -125,7 +117,6 @@ function closePressEmpty(close, popup) { // todo experiment
 document.addEventListener('click', close => closePressEmpty(close, popupEditProfile));
 document.addEventListener('click', close => closePressEmpty(close, popupCreateCard));
 document.addEventListener('click', close => closePressEmpty(close, popupImage));
-
 
 //openPopup
 buttonCreateCard.addEventListener('click', () => openPopup(popupCreateCard));
