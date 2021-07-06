@@ -26,7 +26,7 @@
                     class="profile__button-add button-hover"></button>
         </section>
         <section class="cards">
-            <ul class="cards__list">
+            <ul id="cardsList" class="cards__list">
             </ul>
         </section>
     </main>
@@ -87,7 +87,7 @@
         <figcaption class="popup__caption"></figcaption>
     </figure>
 </div>
-<template id="card-template">
+<template id="card-template" class="card-template">
     <li class="card" id="card">
         <button aria-label="Иконка удаления" type="button" class="card__button-delete"></button>
         <img src="../images/papua-novaya-gvineya-7factov-2.jpg" alt="" class="card__image">
@@ -97,8 +97,8 @@
         </div>
     </li>
 </template>
-<script src="../scripts/initial-сards.js" defer></script>
+<script src="../scripts/Card.js" defer></script>
 <script src="../scripts/index.js" defer></script>
-<script src="../scripts/validate.js" defer></script>
+<!--<script src="../scripts/FormValidator.js" defer></script>-->
 </body>
 </html>
